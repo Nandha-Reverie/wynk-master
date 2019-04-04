@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0
+}
+.nav{
+    position: absolute;
+    top: 0;
+    background: #0000ff;
+    color: white;
+    width: 100vw;
+    height: 40px;
+    font-size: 30px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-align: center
+}
+
+.container{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.ant-table td{
+    white-space: unset;
+}
+.ant-table td:empty{
+    visibility: hidden;
+}
+
+.ant-table tr:empty{
+    visibility: hidden;
+}
+
+.ant-table ant-table-body ant-table-row td:empty{
+    visibility: hidden;
+}
