@@ -3,6 +3,10 @@ import rename from './rename'
 
 const allLan = (res, startDate, endDate, language) => {
     let lan = language;
+    let inMon = 1 + moment(startDate, 'YYYY/MM/DD').month(), knum,
+        enMon = 1 + moment(endDate, 'YYYY/MM/DD').month();
+    inMon = parseInt(inMon, 10);
+    enMon = parseInt(enMon, 10)
     let y1 = moment(startDate, 'YYYY/MM/DD').year(),
         y2 = moment(endDate, 'YYYY/MM/DD').year(),
         obj1 = {
@@ -335,6 +339,48 @@ const allLan = (res, startDate, endDate, language) => {
         }
 
     }
+
+    for (let i = 1; i <= lan.length; i++) {
+        for (const key in obj1[lan[i - 1]][y1]) {
+            if (obj1[lan[i - 1]][y1].hasOwnProperty(key)) {
+                knum = parseInt(key, 10)
+                if (knum < inMon) {
+                    delete obj1[lan[i - 1]][y1][key]
+                }
+            }
+        }
+
+    }
+
+    for (let i = 1; i <= lan.length; i++) {
+        for (const key in obj1[lan[i - 1]][y2]) {
+            if (obj1[lan[i - 1]][y2].hasOwnProperty(key)) {
+                knum = parseInt(key, 10)
+                if (knum > enMon) {
+                    delete obj1[lan[i - 1]][y2][key]
+                }
+            }
+        }
+
+    }
+
+    // for (const key in obj1[y1]) {
+    //     if (obj1[y1].hasOwnProperty(key)) {
+    //         knum = parseInt(key, 10)
+    //         if (knum < inMon) {
+    //             delete obj1[y1][key]
+    //         }
+    //     }
+    // }
+
+    // for (const key in obj1[y2]) {
+    //     if (obj1[y2].hasOwnProperty(key)) {
+    //         knum = parseInt(key, 10)
+    //         if (knum > enMon) {
+    //             delete obj1[y2][key]
+    //         }
+    //     }
+    // }
 
 
     for (let i = 1; i <= lan.length; i++) {
