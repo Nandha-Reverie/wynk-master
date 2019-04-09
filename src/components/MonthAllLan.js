@@ -22,6 +22,10 @@ export default class Table3 extends Component {
             key: 'month',
             sorter: (a, b) => moment().month(a.month) - moment().month(b.month)
         }, {
+            title: 'Total',
+            dataIndex: 'total',
+            key: 'total'
+        }, {
             title: 'Moderated',
             dataIndex: 'moderated',
             key: 'moderated'
@@ -31,27 +35,51 @@ export default class Table3 extends Component {
             key: 'inprogress'
         }];
         let dataSource = [];
-        for (const k in obj) {
-            if (obj.hasOwnProperty(k)) {
-                for (const k1 in obj[k]) {
-                    if (obj[k].hasOwnProperty(k1)) {
-                        for (const k2 in obj[k][k1]) {
-                            let temp1 = {}
-                            if (obj[k][k1].hasOwnProperty(k2)) {
-                                temp1.key = uuid()
-                                temp1.month = k2
-                                temp1.moderated = obj[k][k1][k2].mod
-                                temp1.inprogress = obj[k][k1][k2].in
-                                temp1.language = k
-                                temp1.year = k1
-                                dataSource.push(temp1)
-                            }
-                        }
+        //new logic
+        for (const k1 in obj['allLan']) {
+            if (obj['allLan'].hasOwnProperty(k1)) {
+                for (const k2 in obj['allLan'][k1]) {
+                    let temp = {}
+                    if (obj['allLan'][k1].hasOwnProperty(k2)) {
+                        temp.language = 'All Language'
+                        temp.key = uuid()
+                        temp.month = k2
+                        temp.year = k1
+                        temp.moderated = obj['allLan'][k1][k2].mod
+                        temp.inprogress = obj['allLan'][k1][k2].in
+                        temp.total = temp.moderated + temp.inprogress
+                        dataSource.push(temp)
                     }
                 }
 
             }
         }
+
+
+        //old logic
+
+        // for (const k in obj) {
+        //     if (obj.hasOwnProperty(k)) {
+        //         for (const k1 in obj[k]) {
+        //             if (obj[k].hasOwnProperty(k1)) {
+        //                 for (const k2 in obj[k][k1]) {
+        //                     let temp1 = {}
+        //                     if (obj[k][k1].hasOwnProperty(k2)) {
+        //                         temp1.key = uuid()
+        //                         temp1.month = k2
+        //                         temp1.moderated = obj[k][k1][k2].mod
+        //                         temp1.inprogress = obj[k][k1][k2].in
+        //                         temp1.total = temp1.moderated + temp1.inprogress
+        //                         temp1.language = k
+        //                         temp1.year = k1
+        //                         dataSource.push(temp1)
+        //                     }
+        //                 }
+        //             }
+        //         }
+
+        //     }
+        // }
 
         return (
             <div className='container'>

@@ -5,6 +5,7 @@
   "dependencies": {
     "antd": "^3.16.1",
     "axios": "^0.18.0",
+    "forever-monitor": "^1.7.1",
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -13,7 +14,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "react": "react-scripts start"
+    "react": "react-scripts start",
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
