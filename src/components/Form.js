@@ -4,6 +4,7 @@ import TABS from './TABS'
 import operation from '../utils/operation';
 import allLan from '../utils/allLan'
 import axios from 'axios'
+import logo from "../images/Reverie.jpg";
 
 const { Option } = Select;
 let response = ''
@@ -16,7 +17,8 @@ export default class Form1 extends Component {
             startDate: '',
             endDate: '',
             data: '',
-            response: ''
+            response: '',
+            tab: null
         }
     }
     componentDidMount = () => {
@@ -24,7 +26,7 @@ export default class Form1 extends Component {
     }
 
     handleChange = (language) => {
-        this.setState({ language })
+        this.setState({ language, tab: null })
     }
 
     onChange1 = (date, dateString) => {
@@ -40,8 +42,13 @@ export default class Form1 extends Component {
         let data = '', data1 = ''
 
         e.preventDefault();
+        if (typeof language == 'string') {
+            this.setState({ tab: true })
+        } else {
+            this.setState({ tab: false })
+        }
 
-
+        //'https://api-gw.revup.reverieinc.com/apiman-gateway/Wynk/stats/1.0'
         axios.post('https://api-gw.revup.reverieinc.com/apiman-gateway/Wynk/stats/1.0', {
             "languages": typeof language == 'string' ? [language] : [...language],
             "startDate": startDate,
@@ -77,7 +84,7 @@ export default class Form1 extends Component {
         return (
             <div className="container">
                 <Form layout='horizontal' onSubmit={this.handleSubmit} style={{ marginBottom: '30px' }}>
-                    <Row type='flex' justify='space-between'>
+                    <Row type='flex' justify='space-around'>
                         <Col span={4}>
                             <Select
                                 showSearch
@@ -97,26 +104,35 @@ export default class Form1 extends Component {
                                 <Option value={allLan1}>All Language</Option>
                             </Select>
                         </Col>
-                        <Col span={4}>
+                        <Col span={'20%'}>
                             <DatePicker
                                 onChange={this.onChange1}
                                 style={{ marginTop: '50px', marginLeft: '10px' }}
                                 placeholder='Start Date'
                             />
                         </Col>
-                        <Col span={4}>
+                        <Col span={'20%'}>
                             <DatePicker
                                 placeholder='End Date'
                                 onChange={this.onChange2}
                                 style={{ marginTop: '50px', marginLeft: '10px' }}
                             />
                         </Col>
-                        <Col span={4}>
+                        <Col span={'20%'}>
                             <Button
                                 type="primary"
                                 htmlType="submit"
-                                style={{ marginTop: '50px', marginLeft: '10px' }}
-                            >Submit</Button>
+                                style={{ marginTop: '50px', marginLeft: '10px', width: '130px' }}
+                            >Submit
+                            </Button>
+                        </Col>
+                        <Col span={'20%'}>
+
+                            <img
+                                style={{ marginTop: 40 }}
+                                src={logo}
+                                width="70px"
+                                height="60px" />
                         </Col>
                     </Row>
                 </Form>
@@ -126,6 +142,7 @@ export default class Form1 extends Component {
                     obj={this.state.data}
                     language={this.state.language}
                     response={this.state.response}
+                    tab={this.state.tab}
                 />
             </div>
         )

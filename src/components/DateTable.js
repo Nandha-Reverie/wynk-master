@@ -16,6 +16,10 @@ export default class Table2 extends Component {
             key: 'month',
             sorter: (a, b) => moment(a.month).format('X') - moment(b.month).format('X')
         }, {
+            title: 'Total',
+            dataIndex: 'total',
+            key: 'total'
+        }, {
             title: 'Moderated',
             dataIndex: 'moderated',
             key: 'moderated'
@@ -32,6 +36,7 @@ export default class Table2 extends Component {
                 temp.language = language
                 temp.inprogress = obj[language][key].inprogress ? obj[language][key].inprogress : 0
                 temp.moderated = obj[language][key].moderated ? obj[language][key].moderated : 0
+                temp.total = temp.inprogress + temp.moderated
                 temp.month = key
                 dataSource.push(temp);
 
