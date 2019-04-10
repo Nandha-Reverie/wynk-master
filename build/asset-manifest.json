@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "main.css": "/static/css/main.70a617da.chunk.css",
   "main.js": "/static/js/main.1d65e945.chunk.js",
   "main.js.map": "/static/js/main.1d65e945.chunk.js.map",
@@ -12,5 +13,20 @@
   "service-worker.js": "/service-worker.js",
   "static/css/2.48204023.chunk.css.map": "/static/css/2.48204023.chunk.css.map",
   "static/css/main.70a617da.chunk.css.map": "/static/css/main.70a617da.chunk.css.map",
+=======
+  "main.css": "/static/css/main.74a82ea8.chunk.css",
+  "main.js": "/static/js/main.5591ae51.chunk.js",
+  "main.js.map": "/static/js/main.5591ae51.chunk.js.map",
+  "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+  "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+  "static/css/2.7b0b8e7a.chunk.css": "/static/css/2.7b0b8e7a.chunk.css",
+  "static/js/2.d7bc57b4.chunk.js": "/static/js/2.d7bc57b4.chunk.js",
+  "static/js/2.d7bc57b4.chunk.js.map": "/static/js/2.d7bc57b4.chunk.js.map",
+  "index.html": "/index.html",
+  "precache-manifest.cc36883e87b822907de8950e274f887c.js": "/precache-manifest.cc36883e87b822907de8950e274f887c.js",
+  "service-worker.js": "/service-worker.js",
+  "static/css/2.7b0b8e7a.chunk.css.map": "/static/css/2.7b0b8e7a.chunk.css.map",
+  "static/css/main.74a82ea8.chunk.css.map": "/static/css/main.74a82ea8.chunk.css.map",
+>>>>>>> 2cf26d279b1ab59890291b93746c32b7124e07e3
   "static/media/Reverie.jpg": "/static/media/Reverie.c8c70dc4.jpg"
 }

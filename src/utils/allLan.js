@@ -509,6 +509,52 @@ const allLan = (res, startDate, endDate, language) => {
             }
         }
 
+        for (const k in obj1[lan[i - 1]][y1]) {
+            if (obj1[lan[i - 1]][y1].hasOwnProperty(k)) {
+                obj3['allLan'][y1][k].mod = obj1[lan[i - 1]][y1][k].mod + obj3['allLan'][y1][k].mod
+                obj3['allLan'][y1][k].in = obj1[lan[i - 1]][y1][k].in + obj3['allLan'][y1][k].in
+
+            }
+
+        }
+        // for (const k1 in obj1[lan[i - 1]]) {
+        //     if (obj1[lan[i - 1]].hasOwnProperty(k1)) {
+        //         for (const k2 in obj1[lan[i - 1]][k1]) {
+        //             console.log('executing....');
+        //             if (obj1[lan[i - 1]][k1].hasOwnProperty(k2)) {
+        //                 obj3['allLan'][y1][k2].mod = obj1[lan[i - 1]][k1][k2].mod + obj3['allLan'][y1][k2].mod
+        //                 obj3['allLan'][y1][k2].in = obj1[lan[i - 1]][k1][k2].in + obj3['allLan'][y1][k2].in
+
+        //             }
+
+        //         }
+
+        //     }
+        // }
+
+        for (const k in obj1[lan[i - 1]][y2]) {
+            if (obj1[lan[i - 1]][y2].hasOwnProperty(k)) {
+                obj3['allLan'][y2][k].mod = obj1[lan[i - 1]][y2][k].mod + obj3['allLan'][y2][k].mod
+                obj3['allLan'][y2][k].in = obj1[lan[i - 1]][y2][k].in + obj3['allLan'][y2][k].in
+
+            }
+
+        }
+
+        // for (const k1 in obj1[lan[i - 1]]) {
+        //     if (obj1[lan[i - 1]].hasOwnProperty(k1)) {
+
+        //         for (const k2 in obj1[lan[i - 1]][k1]) {
+        //             if (obj1[lan[i - 1]][k1].hasOwnProperty(k2)) {
+        //                 obj3['allLan'][y2][k2].mod += obj1[lan[i - 1]][k1][k2].mod;
+        //                 obj3['allLan'][y2][k2].in += obj1[lan[i - 1]][k1][k2].in
+
+        //             }
+        //         }
+
+        //     }
+        // }
+
     }
 
     for (const key in obj3['allLan'][y1]) {
